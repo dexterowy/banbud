@@ -25,7 +25,7 @@ const Developing = styled.h1`
 const Landing = () => (
     <LandingWrapper>
         <Developing>
-            Work in progress..
+            Work in progress...
         </Developing>
     </LandingWrapper>
     );

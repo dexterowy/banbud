@@ -4,6 +4,7 @@ module.exports = {
     description: `This is the Banbud's official webpage. Check out our services and build with us something great!`,
     author: `@hillockstudio`,
   },
+  pathPrefix: "/reponame",
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
