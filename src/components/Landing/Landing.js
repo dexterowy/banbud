@@ -26,6 +26,8 @@ const Developing = styled.h1`
     color: ${colors.white};
     font-family: ${fonts.poppins};
     text-shadow: 2px 2px 3px ${colors.black};
+    font-weight: 500;
+    line-height: 1.2em;
 `
 
 
@@ -33,7 +35,7 @@ const Landing = () => (
     <LandingWrapper>
         <div></div>
         <Developing>
-                BUDUJ <br />
+                <span style={{fontWeight: 600}}>BUDUJ</span> <br />
                 razem z nami
         </Developing>
         <More />

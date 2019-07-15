@@ -15,6 +15,7 @@ const MoreText = styled.h2`
     padding: 10px;
     margin: 0;
     font-weight: 400;
+    width: 100%;
 `
 const More = () => {
     return (
