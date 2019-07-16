@@ -5,7 +5,11 @@ import PageWrapper from '../components/PageWrapper'
 import Landing from '../components/Landing/Landing'
 import Navigation from '../components/Navigation'
 import About from '../components/About/About'
+import Projects from '../components/Projects/Projects'
+import Services from '../components/Services/Services'
 import Footer from '../components/Footer/Footer'
+
+
 
 class IndexPage extends Component {
   render() {
@@ -15,6 +19,8 @@ class IndexPage extends Component {
         <Navigation/>
         <Landing />
         <About />
+        <Projects />
+        <Services />
         <Footer />
       </PageWrapper>
     )
