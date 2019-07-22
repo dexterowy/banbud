@@ -18,7 +18,7 @@ const LandingWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
 `
-const Developing = styled.h1`
+const LandingHeader = styled.h1`
     margin: 0;
     padding: 0;
     text-align: center;
@@ -34,10 +34,10 @@ const Developing = styled.h1`
 const Landing = () => (
     <LandingWrapper>
         <div></div>
-        <Developing>
+        <LandingHeader>
                 <span style={{fontWeight: 600}}>BUDUJ</span> <br />
                 razem z nami
-        </Developing>
+        </LandingHeader>
         <More />
     </LandingWrapper>
     );

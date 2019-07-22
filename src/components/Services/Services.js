@@ -49,7 +49,7 @@ const SlideText = styled.p `
 const Services = () => {
     return (
         <ServicesWrapper>
-            <Carousel interval={7000} showThumbs={false} autoPlay infiniteLoop showStatus={false} showArrows={false}>
+            <Carousel interval={8000} showThumbs={false} autoPlay infiniteLoop showStatus={false} showArrows={false}>
                 <Slide>
                     <ImageWrapper>
                         <img src={pedzel} alt="pędzel" style={{height: "70px"}} />

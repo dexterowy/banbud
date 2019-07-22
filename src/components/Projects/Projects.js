@@ -14,7 +14,7 @@ const ProjectsWrapper = styled.div`
 
 `
 
-const ProjectsHeader = styled.h3`
+const ProjectsHeader = styled.h2`
     font-weight: 400;
     margin-top: 0;
 `
