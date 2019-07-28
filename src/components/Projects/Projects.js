@@ -35,7 +35,7 @@ const GalleryButton = styled.button`
 
 const Projects = () => {
     return (
-        <ProjectsWrapper>
+        <ProjectsWrapper id="projects">
             <ProjectsHeader>
                 Realizacje
             </ProjectsHeader>

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 import colors from '../../utils/colors'
 import fonts from '../../utils/fonts'
@@ -16,11 +17,18 @@ const FooterLinks = styled.ul`
 `
 
 
-const FooterLink = styled.li`
+const FooterLink = styled(Link)`
     font-weight: 200;
     color: ${colors.white};
     border-bottom: 1px solid ${colors.footer.bars};
     padding: 3px 0;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+
+    :hover {
+        cursor: pointer;
+    }
 `
 
 const Langs = styled.div`
@@ -48,10 +56,10 @@ const Footer = () => {
     return (
         <FooterWrapper>
             <FooterLinks>
-                <FooterLink>Strona Główna</FooterLink>
-                <FooterLink>O nas</FooterLink>
-                <FooterLink>Realizacje</FooterLink>
-                <FooterLink>Kontakt</FooterLink>
+                <li><FooterLink to="/#start">Strona Główna</FooterLink></li>
+                <li><FooterLink to="/#about">O nas</FooterLink></li>
+                <li><FooterLink to="/#projects">Realizacje</FooterLink></li>
+                <li><FooterLink to="/#contact">Kontakt</FooterLink></li>
             </FooterLinks>
             <Langs>
                 <Lang selected>PL</Lang>

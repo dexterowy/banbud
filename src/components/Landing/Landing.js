@@ -32,7 +32,7 @@ const LandingHeader = styled.h1`
 
 
 const Landing = () => (
-    <LandingWrapper>
+    <LandingWrapper id="start">
         <div></div>
         <LandingHeader>
                 <span style={{fontWeight: 600}}>BUDUJ</span> <br />

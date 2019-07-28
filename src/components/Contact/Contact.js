@@ -62,6 +62,7 @@ const ContactButton = styled.input`
     color: ${colors.white};
     border: none;
     font-size: 0.9em;
+    appearance: none;
 `
 
 const Rect = styled.div `
@@ -91,7 +92,7 @@ const ContactAdresses = styled.div`
     
 `
 
-const ContactAdress = styled.p `
+const ContactAdress = styled.div `
     font-family: ${fonts.poppins};
     font-weight: 400;
     font-size: 1.1em;
@@ -105,7 +106,7 @@ const ContactAdress = styled.p `
 
 const Contact = () => {
     return (
-        <ContactWrapper>
+        <ContactWrapper id="contact">
             <ContactHeader>
                 Kontakt
             </ContactHeader>

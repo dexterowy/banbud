@@ -39,7 +39,7 @@ const AboutP = styled.p`
 
 const About = () => {
     return (
-        <AboutWrapper>
+        <AboutWrapper id="about">
             <AboutHeader align={"right"}>
                 <Rect /> Kim tak właściwie jesteśmy?
             </AboutHeader>
