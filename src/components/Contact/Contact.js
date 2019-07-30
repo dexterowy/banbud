@@ -1,3 +1,5 @@
+
+
 import React from 'react'
 import styled from 'styled-components'
 
@@ -17,7 +19,8 @@ const ContactForm = styled.form`
 const ContactHeader = styled.h2`
     font-family: ${fonts.poppins};
     font-weight: 500;
-    margin: 26px 0;
+    padding: 26px 0;
+    margin: 0;
 `
 
 const ContactText = styled.p`

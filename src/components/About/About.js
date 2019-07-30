@@ -28,7 +28,8 @@ const AboutHeader = styled.h3`
     display: flex;
     justify-content: ${props => props.align === "left" ? "flex-start" : "flex-end"};
     align-items: center;
-    margin: 30px 25px 10px 25px;
+    padding: 30px 25px 10px 25px;
+    margin: 0;
 `
 
 const AboutP = styled.p`
@@ -39,8 +40,8 @@ const AboutP = styled.p`
 
 const About = () => {
     return (
-        <AboutWrapper id="about">
-            <AboutHeader align={"right"}>
+        <AboutWrapper>
+            <AboutHeader id="about" align={"right"}>
                 <Rect /> Kim tak właściwie jesteśmy?
             </AboutHeader>
             <AboutP align={"right"}>

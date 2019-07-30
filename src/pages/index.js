@@ -3,7 +3,7 @@ import Head from '../components/Head';
 
 import PageWrapper from '../components/PageWrapper'
 import Landing from '../components/Landing/Landing'
-import Navigation from '../components/Navigation'
+import Navigation from '../components/Navigation/Navigation'
 import About from '../components/About/About'
 import Projects from '../components/Projects/Projects'
 import Services from '../components/Services/Services'
