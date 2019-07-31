@@ -5,19 +5,21 @@ import colors from '../../utils/colors'
 import bgImage from '../../images/landing.png'
 import fonts from '../../utils/fonts';
 
+import Div100vh from 'react-div-100vh';
 import More from './More'
 
-const LandingWrapper = styled.div`
-    min-height: -webkit-fill-available;
-    height: 100vh;
+const LandingWrapper = styled(Div100vh)`
+    /* height: ${window.innerHeight} */
     width: 100%;
-    background: url(${bgImage}) center no-repeat;
+    background: url(${bgImage}) center center no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 `
+
+
 const LandingHeader = styled.h1`
     margin: 0;
     padding: 0;
@@ -33,12 +35,14 @@ const LandingHeader = styled.h1`
 
 const Landing = () => (
     <LandingWrapper id="start">
-        <div></div>
-        <LandingHeader>
-                <span style={{fontWeight: 600}}>BUDUJ</span> <br />
-                razem z nami
-        </LandingHeader>
-        <More />
+            {/* <Div100vh> */}
+            <div></div>
+            <LandingHeader>
+                    <span style={{fontWeight: 600}}>BUDUJ</span> <br />
+                    razem z nami
+            </LandingHeader>
+            <More />
+        {/* </Div100vh> */}
     </LandingWrapper>
     );
 
