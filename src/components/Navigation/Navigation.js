@@ -16,8 +16,9 @@ const NavWrapper = styled.div`
     left: 0;
     right: 0;
     height: 76px;
-    /* background: ${props => props.navbar || props.menu ? colors.white : "none"};
-    transition: background 0.4s linear; */
+    background: ${props => props.navbar || props.menu ? colors.white : "none"};
+    transition: background 0.4s linear;
+    /* overflow: hidden; */
 `
 
 const NavBar = styled.div`
@@ -33,6 +34,7 @@ const NavBar = styled.div`
     -webkit-transform: translateY(0);
     transition: background 0.2s linear;
     -webkit-transition: background 0.2s linear;
+    overflow: hidden;
     border-bottom: 1px solid ${props => props.navbar || props.menu ? colors.grey : "none"};
 `
 
@@ -48,7 +50,7 @@ const Logo = styled.img `
 const Menu = styled.div `
     width: 100%;
     height: 300px;
-    position: static;
+    position: relative;
     z-index: -1;
     background: ${colors.white};
     /* visibility: ${props => props.menu ? "visible" : "hidden"}; */
