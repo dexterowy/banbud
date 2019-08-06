@@ -5,11 +5,12 @@ import colors from '../../utils/colors'
 import bgImage from '../../images/landing.png'
 import fonts from '../../utils/fonts';
 
-import Div100vh from 'react-div-100vh';
+// import Div100vh from 'react-div-100vh';
 import More from './More'
 
-const LandingWrapper = styled(Div100vh)`
+const LandingWrapper = styled.div`
     /* height: ${window.innerHeight} */
+    height: 100vh;
     width: 100%;
     background: url(${bgImage}) center center no-repeat;
     background-size: cover;

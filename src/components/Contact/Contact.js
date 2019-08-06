@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import colors from '../../utils/colors'
 import fonts from '../../utils/fonts'
 
-import mapa from '../../images/mapa-placeholder.png'
+// import mapa from '../../images/mapa-placeholder.png'
 
 const ContactWrapper = styled.div`
     margin: 10px 25px;
@@ -76,7 +76,7 @@ const Rect = styled.div `
     margin: 4px;
 `
 
-const Map = styled.img`
+const Map = styled.div`
     margin-top: 50px;
     margin-bottom: 50px;
     width: 100%;
@@ -123,7 +123,16 @@ const Contact = () => {
                 <ContactTextArea placeholder="Wiecej informacji..." type="textarea" rows="6"/>
                 <ContactButton type="submit" value="Wyślij" />
             </ContactForm>
-            <Map src={mapa} />
+            <Map>
+                <iframe
+                width="600"
+                height="450"
+                frameBorder="0" style={{border:0, width: "100%"}}
+                title="map"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAn9QYnYGVhgUNMRfuXfKiONHODIejWx1w
+                    &q=banbud+orzech" allowFullScreen>
+                </iframe>
+            </Map>
             <ContactInfo>
                 BanBud Wojciech Banaś
             </ContactInfo>

@@ -15,33 +15,26 @@ const NavWrapper = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    height: 76px;
     background: ${props => props.navbar || props.menu ? colors.white : "none"};
-    transition: background 0.4s linear;
-    /* overflow: hidden; */
+    transition: all 0.4s linear;
+    border-bottom: ${props => props.navbar && !props.menu ? "1px solid " + colors.grey : "none"};
 `
 
 const NavBar = styled.div`
     padding: 20px 25px;
-    height: 100%;
+    height: 76px;
+    margin: 0;
     display: flex;
     position: relative;
     background: ${props => props.navbar || props.menu ? colors.white : "transparent"};
-
     z-index: 100;
     justify-content: space-between;
-    transform: translateY(0);
-    -webkit-transform: translateY(0);
     transition: background 0.2s linear;
-    -webkit-transition: background 0.2s linear;
-    overflow: hidden;
-    border-bottom: 1px solid ${props => props.navbar || props.menu ? colors.grey : "none"};
 `
 
 const Logo = styled.img `
     opacity: ${props => props.navbar || props.menu ? 1 : 0};
     transition: opacity 0.2s linear;
-    -webkit-transition: opacity 0.2s linear;
     @media screen and (min-width: 600px) {
         visibility: visible;
     }
@@ -49,15 +42,11 @@ const Logo = styled.img `
 
 const Menu = styled.div `
     width: 100%;
-    height: 300px;
+    height: ${props => props.menu ? "250px" : 0};
     position: relative;
-    z-index: -1;
     background: ${colors.white};
-    /* visibility: ${props => props.menu ? "visible" : "hidden"}; */
-    transform: ${props => props.menu ? "translateY(0)" : "translateY(-700px)"};
-    -webkit-transform: ${props => props.menu ? "translateY(0)" : "translateY(-700px)"};
-    transition: transform 0.4s linear;
-    -webkit-transition: transform 0.4s linear;
+    transition: height 0.2s ease-in-out;
+    overflow: hidden;
 `
 
 const NavLink = styled(Link)`
@@ -66,29 +55,37 @@ const NavLink = styled(Link)`
     text-decoration: none;
     font-size: 1.4em;
     font-weight: 400;
-    margin: 5px;
+    padding: 5px 5px;
+    width: 100%;
+    text-align: right;
 `
 
 
 const NavLinks = styled.ul`
     margin: 0;
+    list-style: none;
     padding: 30px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-end;
-   
+    /* justify-content: space-around; */
+    /* align-items: flex-end; */
+    opacity: ${props => props.links ? "1" : "0"};
+    transition: opacity 0.3s ease-in-out;
+    overflow: hidden;
+
 `
 
 const Navigation = (props) => (
     <NavWrapper navbar={props.navbar} menu={props.menu}>
         <NavBar navbar={props.navbar} menu={props.menu}>
-            <Logo navbar={props.navbar} menu={props.menu} src={logo} alt="Banbud" />
+            {/* <Link to="/#start"> */}
+                <Logo navbar={props.navbar} menu={props.menu} src={logo} alt="Banbud" />
+            {/* </Link> */}
             <MenuIcon navbar={props.navbar} menu={props.menu} 
             openMenuHandler={props.openMenuHandler} closeMenuHandler={props.closeMenuHandler}/>
         </NavBar>
         <Menu menu={props.menu}>
-            <NavLinks>
+            <NavLinks menu={props.menu} links={props.links}>
                 <NavLink onClick={props.closeMenuHandler} to="/#start">Start</NavLink>
                 <NavLink onClick={props.closeMenuHandler} to="/#about">O nas</NavLink>
                 <NavLink onClick={props.closeMenuHandler} to="/#projects">Realizacje</NavLink>
