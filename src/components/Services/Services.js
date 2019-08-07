@@ -16,6 +16,10 @@ import pila from '../../images/svg/pila.svg'
 const ServicesWrapper = styled.div`
     background: ${colors.white};
     font-family: ${fonts.poppins};
+    @media (min-width: 900px) {
+        display: flex;
+        margin: 100px 50px;
+    }
 `
 const Slide = styled.div`
     min-height: 400px;
@@ -25,6 +29,19 @@ const Slide = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @media (min-width: 900px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+        width: 25%;
+        box-shadow: none;
+        border-left: 1px solid ${colors.lightgrey};
+
+        :last-of-type {
+        border-right: 1px solid ${colors.lightgrey};
+        }
+    }
 `
 
 const SlideHeader = styled.h4`
@@ -36,7 +53,15 @@ const SlideHeader = styled.h4`
 `
 
 const ImageWrapper = styled.div`
-    margin: 15px 0;
+    margin: 15px;
+    @media (min-width: 900px) {
+        display: flex;
+        margin: 15px 0;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
 `
 
 const SlideText = styled.p `
@@ -46,10 +71,8 @@ const SlideText = styled.p `
 `
 
 
-const Services = () => {
-    return (
-        <ServicesWrapper>
-            <Carousel interval={8000} showThumbs={false} autoPlay infiniteLoop showStatus={false} showArrows={false}>
+const MobileView = (
+    <Carousel interval={8000} showThumbs={false} autoPlay infiniteLoop showStatus={false} showArrows={false}>
                 <Slide>
                     <ImageWrapper>
                         <img src={pedzel} alt="pędzel" style={{height: "70px"}} />
@@ -92,6 +115,58 @@ const Services = () => {
                     </ImageWrapper>
                 </Slide>
             </Carousel>
+)
+
+const DesktopView = (
+    <>
+        <Slide>
+            <ImageWrapper>
+                <img src={pedzel} alt="pędzel" style={{height: "70px"}} />
+                <SlideHeader>Malowanie</SlideHeader>
+            </ImageWrapper>
+            <ImageWrapper>
+                <img src={pila} alt="piła" style={{height: "40px"}} /> 
+                <SlideHeader>Remonty <br /> łazienek</SlideHeader>
+            </ImageWrapper>
+        </Slide>
+
+        <Slide>
+            <ImageWrapper>
+                <img src={walek} alt="Wałek do malowania" style={{height: "70px"}} />
+                <SlideHeader>Usługi <br /> wykończeniowe</SlideHeader>
+                <SlideText>
+                    Nasza szeroka oferta usług wykończeniowych świadczy najwyższy poziom jakości dla naszych klientów. Wszystko wykonujemy dokładnie i rzetelnie, aby w stu procentach zapewnić zadowolenie.
+                </SlideText>
+            </ImageWrapper>
+        </Slide>
+        
+        <Slide>
+            <ImageWrapper>
+                <img src={betoniarka} alt="betoniarka" style={{height: "70px"}} />
+                <SlideHeader>Budowa <br /> domu</SlideHeader>
+                <SlideText>
+                    Nasza szeroka oferta usług wykończeniowych świadczy najwyższy poziom jakości dla naszych klientów. Wszystko wykonujemy dokładnie i rzetelnie, aby w stu procentach zapewnić zadowolenie.
+                </SlideText>
+            </ImageWrapper>
+        </Slide>
+
+         <Slide>
+            <ImageWrapper>
+                <img src={lopata} alt="łopata" style={{height: "70px"}} />
+                <SlideHeader>Malowanie</SlideHeader>
+            </ImageWrapper>
+            <ImageWrapper>
+                <img src={waserwoga} alt="poziomica" style={{height: "30px"}} /> 
+                <SlideHeader>Remonty <br /> łazienek</SlideHeader>
+            </ImageWrapper>
+        </Slide>
+    </>
+)
+
+const Services = () => {
+    return (
+        <ServicesWrapper>
+            {window.innerWidth <= 900 ? MobileView : DesktopView}
         </ServicesWrapper>
     )
 }

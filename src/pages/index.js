@@ -30,7 +30,7 @@ class IndexPage extends Component {
 
     this.openMenuHandler = this.openMenuHandler.bind(this);
     this.closeMenuHandler = this.closeMenuHandler.bind(this);
-    this.menuAnimationHandler = this.menuAnimationHandler.bind(this);
+    // this.menuAnimationHandler = this.menuAnimationHandler.bind(this);
   }
 
   componentDidMount() {
@@ -78,22 +78,22 @@ class IndexPage extends Component {
     }, 300)
   }
 
-  menuAnimationHandler = () => {
-    this.setState( (state) => {
-      if(this.state.showMenu === true) {
-        console.log('show links')
-        return({
-          showLinks: true
-        })
-      }
-      else if(this.state.showLinks === false) {
-        console.log('hide links')
-        return({
-          showMenu: false
-        })
-      }
-    });
-  }
+  // menuAnimationHandler = () => {
+  //   this.setState( (state) => {
+  //     if(this.state.showMenu === true) {
+  //       // console.log('show links')
+  //       return({
+  //         showLinks: true
+  //       })
+  //     }
+  //     else if(this.state.showLinks === false) {
+  //       // console.log('hide links')
+  //       return({
+  //         showMenu: false
+  //       })
+  //     }
+  //   });
+  // }
 
 
 
@@ -104,7 +104,8 @@ class IndexPage extends Component {
         <Head />
         <Navigation navbar={this.state.showNavbar} menu={this.state.showMenu} links={this.state.showLinks} 
         openMenuHandler={this.openMenuHandler} closeMenuHandler={this.closeMenuHandler}
-        navAnimation ={this.menuAnimationHandler}/>
+        // navAnimation ={this.menuAnimationHandler}
+        />
         <Landing />
         <About />
         <Projects />

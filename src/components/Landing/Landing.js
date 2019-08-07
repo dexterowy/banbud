@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 import colors from '../../utils/colors'
-import bgImage from '../../images/landing.png'
+import bgImageMobile from '../../images/landing.png'
+import bgImageDesktop from '../../images/landing-desktop.png'
+
 import fonts from '../../utils/fonts';
 
 // import Div100vh from 'react-div-100vh';
@@ -12,7 +14,7 @@ const LandingWrapper = styled.div`
     /* height: ${window.innerHeight} */
     height: 100vh;
     width: 100%;
-    background: url(${bgImage}) center center no-repeat;
+    background: url(${window.innerWidth <=900 ? bgImageMobile : bgImageDesktop}) center center no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;

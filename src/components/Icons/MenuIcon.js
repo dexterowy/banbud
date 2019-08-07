@@ -1,6 +1,13 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
 import colors from '../../utils/colors';
+
+const MenuIconWrapper = styled.div`
+    @media screen and (min-width: 900px) {
+        display: none;
+    }
+`
 
 
 const MenuIcon = (props) => {
@@ -48,9 +55,9 @@ const MenuIcon = (props) => {
     )
 
     return (
-        <>
+        <MenuIconWrapper>
             { props.menu ? close : hamburger}
-        </>
+        </MenuIconWrapper>
     )
 }
 

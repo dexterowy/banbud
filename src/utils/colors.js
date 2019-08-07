@@ -3,6 +3,7 @@ const colors = {
     black: '#000000',
     red: '#C3272E',
     grey: '#AFAFAF',
+    lightgrey: "#CCCCCC",
     input: {
         bg: '#F5F5F5',
         font: '#9F9F9F',

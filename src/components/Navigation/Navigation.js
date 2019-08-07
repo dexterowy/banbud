@@ -18,6 +18,12 @@ const NavWrapper = styled.div`
     background: ${props => props.navbar || props.menu ? colors.white : "none"};
     transition: all 0.4s linear;
     border-bottom: ${props => props.navbar && !props.menu ? "1px solid " + colors.grey : "none"};
+
+    @media screen and (min-width: 900px) {
+        display: flex;
+        height: 76px;
+        justify-content: space-between;
+    }
 `
 
 const NavBar = styled.div`
@@ -26,17 +32,23 @@ const NavBar = styled.div`
     margin: 0;
     display: flex;
     position: relative;
-    background: ${props => props.navbar || props.menu ? colors.white : "transparent"};
+    /* background: ${props => props.navbar || props.menu ? colors.white : "transparent"}; */
     z-index: 100;
     justify-content: space-between;
     transition: background 0.2s linear;
+    @media (min-width: 900px) {
+        padding: 0
+    }
 `
 
 const Logo = styled.img `
     opacity: ${props => props.navbar || props.menu ? 1 : 0};
     transition: opacity 0.2s linear;
-    @media screen and (min-width: 600px) {
-        visibility: visible;
+    height: 100%;
+    width: auto;
+    @media (min-width: 900px) {
+        padding: 20px 25px;
+        
     }
 `
 
@@ -47,17 +59,31 @@ const Menu = styled.div `
     background: ${colors.white};
     transition: height 0.2s ease-in-out;
     overflow: hidden;
+    @media screen and (min-width: 900px) {
+        height: 100%;
+        width: 75%;
+        position: static;
+        background: none;
+    }
 `
 
 const NavLink = styled(Link)`
-    color: ${colors.black};
     font-family: ${fonts.poppins};
     text-decoration: none;
+    color: inherit;
     font-size: 1.4em;
     font-weight: 400;
     padding: 5px 5px;
     width: 100%;
     text-align: right;
+    @media screen and (min-width: 900px) {
+        width: auto;
+        font-weight: 300;
+        font-size: 1em;
+        margin: 0px 20px;
+        padding: 5px;
+        transition: color, text-shadow 0.2s ease-in-out;
+    }
 `
 
 
@@ -72,7 +98,20 @@ const NavLinks = styled.ul`
     opacity: ${props => props.links ? "1" : "0"};
     transition: opacity 0.3s ease-in-out;
     overflow: hidden;
+    color: ${colors.black};
 
+    @media screen and (min-width: 900px) {
+        /* display: flex; */
+        opacity: 1;
+        height: 100%;
+        text-shadow:  ${props => props.navbar ? "none" : `0px 1px 1px ${colors.black}`};
+        color: ${props => props.navbar ? colors.black : colors.white};
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 25px;
+        /* text-align: right; */
+    }
 `
 
 const Navigation = (props) => (
@@ -85,7 +124,7 @@ const Navigation = (props) => (
             openMenuHandler={props.openMenuHandler} closeMenuHandler={props.closeMenuHandler}/>
         </NavBar>
         <Menu menu={props.menu}>
-            <NavLinks menu={props.menu} links={props.links}>
+            <NavLinks navbar={props.navbar} menu={props.menu} links={props.links}>
                 <NavLink onClick={props.closeMenuHandler} to="/#start">Start</NavLink>
                 <NavLink onClick={props.closeMenuHandler} to="/#about">O nas</NavLink>
                 <NavLink onClick={props.closeMenuHandler} to="/#projects">Realizacje</NavLink>
