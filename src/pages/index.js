@@ -19,6 +19,7 @@ if (typeof window !== "undefined") {
 }
 
 
+
 class IndexPage extends Component {
   constructor(props) {
     super(props)

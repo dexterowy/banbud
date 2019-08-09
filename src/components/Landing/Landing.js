@@ -14,7 +14,7 @@ const LandingWrapper = styled.div`
     /* height: ${window.innerHeight} */
     height: 100vh;
     width: 100%;
-    background: url(${window.innerWidth <=900 ? bgImageMobile : bgImageDesktop}) center center no-repeat;
+    background: url(${typeof window !== 'undefined' && window.innerWidth <=900 ? bgImageMobile : bgImageDesktop}) center center no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;

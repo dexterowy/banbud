@@ -166,7 +166,9 @@ const DesktopView = (
 const Services = () => {
     return (
         <ServicesWrapper>
-            {window.innerWidth <= 900 ? MobileView : DesktopView}
+            {
+                typeof window !== 'undefined' && window.innerWidth <= 900 ? MobileView : DesktopView
+            }
         </ServicesWrapper>
     )
 }
