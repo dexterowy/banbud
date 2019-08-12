@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import colors from '../../utils/colors'
 import bgImageMobile from '../../images/landing.png'
-import bgImageDesktop from '../../images/landing-desktop.png'
+// import bgImageDesktop from '../../images/landing-desktop.png'
 
 import fonts from '../../utils/fonts';
 
@@ -14,7 +14,7 @@ const LandingWrapper = styled.div`
     /* height: ${window.innerHeight} */
     height: 100vh;
     width: 100%;
-    background: url(${typeof window !== 'undefined' && window.innerWidth <=900 ? bgImageMobile : bgImageDesktop}) center center no-repeat;
+    background: url(${bgImageMobile}) center center no-repeat;
     background-size: cover;
     display: flex;
     flex-direction: column;

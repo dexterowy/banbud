@@ -70,6 +70,20 @@ const SlideText = styled.p `
     padding: 0 25px;
 `
 
+const Mobile = styled.div`
+    /* display: block; */
+    @media (min-width: 900px) {
+        display: none;
+    }
+`
+
+const Desktop = styled.div`
+    display: none;
+    @media (min-width: 900px) {
+        display: flex;
+        margin: 100px 50px;
+    }
+`
 
 const MobileView = (
     <Carousel interval={8000} showThumbs={false} autoPlay infiniteLoop showStatus={false} showArrows={false}>
@@ -166,9 +180,12 @@ const DesktopView = (
 const Services = () => {
     return (
         <ServicesWrapper>
-            {
-                typeof window !== 'undefined' && window.innerWidth <= 900 ? MobileView : DesktopView
-            }
+            <Mobile>
+                {MobileView}
+            </Mobile>
+            <Desktop>
+                {DesktopView}
+            </Desktop>
         </ServicesWrapper>
     )
 }

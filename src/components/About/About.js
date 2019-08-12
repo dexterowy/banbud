@@ -28,7 +28,7 @@ const SectionWrapper = styled.div`
         justify-self: flex-end;
         padding-top: 20px;
         padding-right: 25px;
-        width: 80%;
+        width: 90%;
         :last-of-type {
             grid-row: 2/3;
         }
@@ -53,7 +53,9 @@ const AboutHeader = styled.h3`
     padding: 30px 25px 10px 25px;
     margin: 0;
     @media (min-width: 900px) {
-        justify-content: flex-end;
+        justify-content: flex-start;
+        text-align: left;
+        
     }
 `
 
@@ -70,12 +72,21 @@ const StyledImg = styled.img`
         width: 100%;
         height: auto;
         @media (min-width: 900px){
-            grid-row: 1/3;
-            grid-column: 1/2;
-            width: 100%;
-            height: 100%;
+            display: none;
         }
     `
+const Image = styled.div`
+    display: none;
+    @media (min-width: 900px){
+        display: block;
+        background: url(${img}) center center no-repeat;
+        background-size: cover;
+        height: 100%;
+        width: 100%;
+        grid-row: 1/3;
+        grid-column: 1/2;
+        }
+`
 
 const About = () => {
     return (
@@ -88,7 +99,8 @@ const About = () => {
                     Banbud to młoda firma budowlana prężnie rozwijająca się na rynku. Posiadamy szereg maszyn, wykorzystywanych przez nas do szybkiej i rzetelnej pracy. Każdy z nas wykonuje swoje zadania pieczołowicie i konkretnie, dzięki czemu wybierając nas jako realizatorów twojego zlecenia z pewnością nie będziesz zawiedziony rezultatem.
                 </AboutP>
             </SectionWrapper>
-            <StyledImg src={img} alt="Planowanie" />
+            <StyledImg src={img} alt="Planowanie" /> 
+            <Image />
             <SectionWrapper>
                 <AboutHeader align={"left"}>
                     <Rect /> Dlaczego właśnie my?

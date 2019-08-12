@@ -5,17 +5,54 @@ import { Link } from 'gatsby';
 import colors from '../../utils/colors'
 import fonts from '../../utils/fonts'
 
+import img from '../../images/logo.png';
+
 const FooterWrapper = styled.div`
     background: ${colors.footer.bg};
     font-family: ${fonts.poppins};
-
+    @media (min-width: 900px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+    }
 `
+const FooterLogoWrapper = styled.div`
+    display: none;
+    @media (min-width: 900px) {
+        display: flex;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        justify-content: center;
+        align-items: center;
+    }
+`
+
+const FooterLogo = styled.img`
+    @media (min-width: 900px) {
+        width: 70%;
+    }
+`
+
 const FooterLinks = styled.ul`
     list-style: none;
     padding: 30px 25px 5px;
     margin: 0;
-`
 
+    @media (min-width: 900px) {
+        padding: 0;
+        margin: 40px auto;
+    }
+`
+const FooterLinksHeader = styled.li`
+    display: none;
+    @media (min-width: 900px) {
+        display: block;
+        font-size: 1.3em;
+        color: ${colors.white};
+        font-weight: 300;
+        padding: 0 0 20px 0;
+    }
+`
 
 const FooterLink = styled(Link)`
     font-weight: 200;
@@ -29,11 +66,21 @@ const FooterLink = styled(Link)`
     :hover {
         cursor: pointer;
     }
+
+    @media (min-width: 900px) {
+        border: none;
+        font-weight: 100;
+        width: auto;
+    }
 `
 
 const Langs = styled.div`
     display: flex;
     padding: 0 25px 70px;
+
+    @media (min-width: 900px) {
+        display: none;
+    }
 `
 
 const Lang = styled.span`
@@ -43,19 +90,63 @@ const Lang = styled.span`
     margin-right: 15px;
 `
 
+const SocialMediaWrapper = styled.div`
+    display: none;
+    @media (min-width: 900px) {
+        display: block;
+        grid-column: 3/4;
+        grid-row: 1/2;
+        margin: 40px auto;
+    }
+`
+
+const SocialMediaLinks = styled.ul`
+    @media (min-width: 900px) {
+        /* margin: 60px auto; */
+        width: auto;
+        /* display: block; */
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+    }
+`
+
+const SocialMediaLink = styled.li`
+    @media (min-width: 900px) {
+        display: block;
+    }
+`
+
+const SocialMediaGoogle = styled.li`
+    @media (min-width: 900px) {
+        display: block;
+        margin-top: auto;
+    }
+`
+
 const Copys = styled.div`
     background: ${colors.footer.copy};
     padding: 16px 0;
     text-align: center;
     color: ${colors.white};
     font-weight: 200;
+    @media (min-width: 900px) {
+        grid-column: 1/4;
+        grid-row: 2/3;
+    }
 `
-
 
 const Footer = () => {
     return (
         <FooterWrapper>
+            <FooterLogoWrapper>
+                <FooterLogo src={img} alt="Logo firmy Banbud" />
+            </FooterLogoWrapper>
             <FooterLinks>
+                <FooterLinksHeader>Nawigacja</FooterLinksHeader>
                 <li><FooterLink to="/#start">Strona Główna</FooterLink></li>
                 <li><FooterLink to="/#about">O nas</FooterLink></li>
                 <li><FooterLink to="/#projects">Realizacje</FooterLink></li>
@@ -66,6 +157,14 @@ const Footer = () => {
                 <Lang>EN</Lang>
                 <Lang>DE</Lang>
             </Langs>
+            <SocialMediaWrapper>
+                <SocialMediaLinks>
+                    <FooterLinksHeader>Social Media</FooterLinksHeader>
+                    <SocialMediaLink><FooterLink to="/#start">Facebook</FooterLink></SocialMediaLink>
+                    <SocialMediaLink><FooterLink to="/#start">WhatsApp</FooterLink></SocialMediaLink>
+                    <SocialMediaGoogle><FooterLink to="/#start">Oceń nas w Google</FooterLink></SocialMediaGoogle>
+                </SocialMediaLinks>
+            </SocialMediaWrapper>
             <Copys>
                 &copy;Hillock Studio 2019 | All Rights Reserved
             </Copys>
