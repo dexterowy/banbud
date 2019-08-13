@@ -14,7 +14,7 @@ const AboutWrapper = styled.div`
     flex-direction: column;
     @media (min-width: 900px) {
         display: grid;
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: repeat(2, auto);
         grid-template-columns: repeat(2, 1fr);
         min-height: calc(100vh - 76px);
         flex-direction: row;
@@ -26,11 +26,13 @@ const SectionWrapper = styled.div`
     @media (min-width: 900px) {
         grid-column: 2/3;
         justify-self: flex-end;
-        padding-top: 20px;
+        /* padding-top: 20px; */
         padding-right: 25px;
         width: 90%;
+
         :last-of-type {
             grid-row: 2/3;
+            margin-top: auto;
         }
     }
 `

@@ -82,7 +82,12 @@ const NavLink = styled(Link)`
         font-size: 1em;
         margin: 0px 20px;
         padding: 5px;
-        transition: color, text-shadow 0.2s ease-in-out;
+        transition: text-shadow 0.2s ease-in-out;
+        :hover {
+            transition: color 0.2s linear;
+            color: ${colors.red};
+            text-shadow: none;
+        }
     }
 `
 
@@ -110,7 +115,6 @@ const NavLinks = styled.ul`
         justify-content: flex-end;
         align-items: center;
         padding: 0 25px;
-        /* text-align: right; */
     }
 `
 

@@ -63,14 +63,15 @@ const FooterLink = styled(Link)`
     width: 100%;
     display: block;
 
-    :hover {
-        cursor: pointer;
-    }
-
     @media (min-width: 900px) {
         border: none;
         font-weight: 100;
         width: auto;
+        transition: color 0.1s linear;
+        :hover {
+            cursor: pointer;
+            color: ${colors.grey};
+    }
     }
 `
 
@@ -120,6 +121,29 @@ const SocialMediaLink = styled.li`
     }
 `
 
+const ExternalLink = styled.a`
+    font-weight: 200;
+    color: ${colors.white};
+    border-bottom: 1px solid ${colors.footer.bars};
+    padding: 3px 0;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+
+    
+
+    @media (min-width: 900px) {
+        border: none;
+        font-weight: 100;
+        width: auto;
+        transition: color 0.1s linear;
+        :hover {
+            cursor: pointer;
+            color: ${colors.grey};
+    }
+    }
+`
+
 const SocialMediaGoogle = styled.li`
     @media (min-width: 900px) {
         display: block;
@@ -147,7 +171,7 @@ const Footer = () => {
             </FooterLogoWrapper>
             <FooterLinks>
                 <FooterLinksHeader>Nawigacja</FooterLinksHeader>
-                <li><FooterLink to="/#start">Strona Główna</FooterLink></li>
+                <li><FooterLink to="/#start">Start</FooterLink></li>
                 <li><FooterLink to="/#about">O nas</FooterLink></li>
                 <li><FooterLink to="/#projects">Realizacje</FooterLink></li>
                 <li><FooterLink to="/#contact">Kontakt</FooterLink></li>
@@ -160,9 +184,9 @@ const Footer = () => {
             <SocialMediaWrapper>
                 <SocialMediaLinks>
                     <FooterLinksHeader>Social Media</FooterLinksHeader>
-                    <SocialMediaLink><FooterLink to="/#start">Facebook</FooterLink></SocialMediaLink>
-                    <SocialMediaLink><FooterLink to="/#start">WhatsApp</FooterLink></SocialMediaLink>
-                    <SocialMediaGoogle><FooterLink to="/#start">Oceń nas w Google</FooterLink></SocialMediaGoogle>
+                    <SocialMediaLink><ExternalLink href="https://www.facebook.com/BanBud-1074866902531515/" target="__blank">Facebook</ExternalLink></SocialMediaLink>
+                    <SocialMediaLink><ExternalLink href="https:/wa.me/48693226902" target="__blank">WhatsApp</ExternalLink></SocialMediaLink>
+                    <SocialMediaGoogle><ExternalLink href="https://g.page/banbud/review" target="__blank" >Oceń nas w Google</ExternalLink></SocialMediaGoogle>
                 </SocialMediaLinks>
             </SocialMediaWrapper>
             <Copys>

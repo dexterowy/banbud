@@ -63,7 +63,7 @@ const ContactInput = styled.input`
     margin: 5px 0;
     font-weight: 300;
     outline: none;
-
+    border-radius: none;
     ::placeholder {
         color: ${colors.input.font};
         font-weight: 200;
@@ -99,6 +99,7 @@ const ContactTextArea = styled.textarea`
     padding: 10px;
     margin: 5px 0;
     font-weight: 200;
+    border-radius: none;
     @media (min-width: 900px) {
         grid-row: 4/5;
         grid-column: 1/3;
@@ -113,6 +114,7 @@ const ContactButton = styled.input`
     border: none;
     font-size: 0.9em;
     appearance: none;
+
 
     @media (min-width: 900px) {
         width: 100%;
