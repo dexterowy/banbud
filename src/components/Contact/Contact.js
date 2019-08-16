@@ -6,7 +6,8 @@ import styled from 'styled-components'
 import colors from '../../utils/colors'
 import fonts from '../../utils/fonts'
 
-// import mapa from '../../images/mapa-placeholder.png'
+import Spinner from '../Spinner/Spinner';
+
 
 const ContactWrapper = styled.div`
     margin: 10px 25px;
@@ -123,6 +124,40 @@ const ContactButton = styled.input`
     }
 `
 
+const SpinnerWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+`
+
+const FormInfoWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid ${colors.lightgrey};
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    font-family: ${fonts.poppins};
+    text-align: center;
+`
+
+const InfoButton = styled.button`
+    display: block;
+    width: 80%;
+    border: none;
+    outline: none;
+    appearance: none;
+    padding: 10px;
+    border-radius: none;
+    background: ${colors.red};
+    color: ${colors.white};
+    box-shadow: 0 1px 5px ${colors.footer.bg};
+`
+
 const Rect = styled.div `
     width: 6px;
     height: 1.17em;
@@ -193,22 +228,56 @@ const ContactAdress = styled.div `
     }
 `
 
+const success = (
+    <p>
+        Dziękujemy za kontakt.<br /><br /> Odpowiemy tak szybko, jak to tylko możliwe!
+    </p>
+    );
+
+const faliure = (
+    <p>
+        Przepraszamy, wysłanie widomości jest w tej chwili niemożliwe.<br /><br />
+        Spróbuj ponownie później lub skontaktuj się z nami poprzez e-mail lub telefonicznie.
+    </p>
+)
 
 
-const Contact = () => {
+
+const Contact = (props) => {
+
+    const formInfo = (
+        <FormInfoWrapper>
+            {props.error ? faliure : success}
+            <InfoButton onClick={props.closeInfo}>OK</InfoButton>
+        </FormInfoWrapper>
+    )
+
+    const contactForm = (
+    <ContactForm>
+                <ContactText>Przejdźmy do konkretów, <br />wypełnij formularz i zapytaj o szczegóły!</ContactText>
+                <ContactInput onChange={props.handleInput} value={props.formValues.name} id="name" placeholder="Imię i nazwisko" type="text" />
+                <ContactInput onChange={props.handleInput} value={props.formValues.email} id="email" placeholder="Adres e-mail" type="text" />
+                <ContactInput onChange={props.handleInput} value={props.formValues.subject} id="subject" placeholder="Temat" type="text" />
+                <ContactTextArea onChange={props.handleInput} value={props.formValues.msg} id="msg" placeholder="Wiecej informacji..." type="textarea" rows="6"/>
+                <ContactButton onClick={props.submitHandle} id="submit" type="submit" value="Wyślij" />
+            </ContactForm>
+)
+
+const spinner = (
+    <SpinnerWrapper>
+        <Spinner />
+    </SpinnerWrapper>
+)
+
     return (
         <ContactWrapper id="contact">
             <ContactHeader>
                 Kontakt
             </ContactHeader>
-            <ContactForm>
-                <ContactText>Przejdźmy do konkretów, <br />wypełnij formularz i zapytaj o szczegóły!</ContactText>
-                <ContactInput id="name" placeholder="Imię i nazwisko" type="text" />
-                <ContactInput id="email" placeholder="Adres e-mail" type="text" />
-                <ContactInput id="subject" placeholder="Temat" type="text" />
-                <ContactTextArea id="msg" placeholder="Wiecej informacji..." type="textarea" rows="6"/>
-                <ContactButton id="submit" type="submit" value="Wyślij" />
-            </ContactForm>
+            {
+                props.loading ? spinner : props.sended ? formInfo : contactForm
+            }
+
             <Map>
                 <iframe
                 width="600"

@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import Head from '../components/Head';
+import axios from 'axios';
 
 import PageWrapper from '../components/PageWrapper'
 import Landing from '../components/Landing/Landing'
@@ -18,7 +19,8 @@ if (typeof window !== "undefined") {
   })
 }
 
-
+const PATH_URL = 'http://new.ban-bud.pl/api/contact.php';
+const PRODUCTION_MODE = false;
 
 class IndexPage extends Component {
   constructor(props) {
@@ -26,7 +28,16 @@ class IndexPage extends Component {
     this.state = {
       showNavbar: false,
       showMenu: false,
-      showLinks: false
+      showLinks: false,
+      loadingContact: false,
+      form: {
+        name: '',
+        email: '',
+        subject: '',
+        msg: ''
+      },
+      sended: false,
+      error: false
     }
 
     this.openMenuHandler = this.openMenuHandler.bind(this);
@@ -79,6 +90,101 @@ class IndexPage extends Component {
     }, 300)
   }
 
+  handleSubmit = (event) => {
+    const formData = {
+      ...this.state.form
+    }
+
+    formData.msg = encodeURIComponent(this.state.form.msg);
+    event.preventDefault();
+    console.log(formData);
+    this.setState({
+      loadingContact: true
+    });
+    if(PRODUCTION_MODE) {
+      console.log(PATH_URL, formData);
+      axios.post(PATH_URL, formData)
+      .then((res) => {
+        console.log(res)
+        console.log("WORKS!")
+        setTimeout( () => {
+        this.setState({
+          loadingContact: false,
+          error: false,
+          sended: true,
+          form: {
+            name: '',
+            email: '',
+            subject: '',
+            msg: ''
+          }});
+        }, 1000)
+      })
+      .catch( (err) => {
+        console.log(err);
+        setTimeout( () => {
+        this.setState({
+          loadingContact: false,
+            sended: true,
+            error: true
+          });
+        }, 1000)
+      })
+    }
+    else {
+      setTimeout( () => {
+        this.setState({
+          loadingContact: false,
+          sended: true,
+          error: false,
+          form: {
+            name: '',
+            email: '',
+            subject: '',
+            msg: ''
+          }});
+        }, 1000);
+    }
+  }
+
+  closeContactInfo = () => {
+    this.setState({
+      sended: false,
+      error: false
+    })
+  }
+
+  handleInput = (e) => {
+    switch(e.target.id) {
+      case 'name':
+        this.setState({form: {
+          ...this.state.form,
+          name: e.target.value
+        }});
+        break;
+      case 'email':
+        this.setState({form: {
+          ...this.state.form,
+          email: e.target.value
+        }});
+        break;
+      case 'subject':
+        this.setState({form: {
+          ...this.state.form,
+          subject: e.target.value
+        }});
+        break;
+      case 'msg':
+        this.setState({form: {
+          ...this.state.form,
+          msg: e.target.value
+        }});
+        break;
+      default:
+        break;
+    }
+  }
+
   // menuAnimationHandler = () => {
   //   this.setState( (state) => {
   //     if(this.state.showMenu === true) {
@@ -111,7 +217,7 @@ class IndexPage extends Component {
         <About />
         <Projects />
         <Services />
-        <Contact />
+        <Contact error={this.state.error} closeInfo={this.closeContactInfo.bind(this)} sended={this.state.sended} formValues={this.state.form} loading={this.state.loadingContact} submitHandle={this.handleSubmit.bind(this)} handleInput={this.handleInput.bind(this)}/>
         <Footer />
       </PageWrapper>
     )

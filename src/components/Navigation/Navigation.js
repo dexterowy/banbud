@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-import MenuIcon from '../Icons/MenuIcon';
+import MenuIcon from '../MenuIcon/MenuIcon';
 import logo from '../../images/logo.png';
 import colors from '../../utils/colors';
 import fonts from '../../utils/fonts';

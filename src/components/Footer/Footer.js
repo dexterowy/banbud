@@ -44,7 +44,11 @@ const FooterLinks = styled.ul`
     }
 `
 const FooterLinksHeader = styled.li`
-    display: none;
+    /* display: none; */
+    color: ${colors.white};
+    font-size: 1.3em;
+    font-weight: 300;
+    padding: 0 0 20px 0;
     @media (min-width: 900px) {
         display: block;
         font-size: 1.3em;
@@ -77,7 +81,7 @@ const FooterLink = styled(Link)`
 
 const Langs = styled.div`
     display: flex;
-    padding: 0 25px 70px;
+    padding: 20px 25px 70px;
 
     @media (min-width: 900px) {
         display: none;
@@ -92,7 +96,7 @@ const Lang = styled.span`
 `
 
 const SocialMediaWrapper = styled.div`
-    display: none;
+    
     @media (min-width: 900px) {
         display: block;
         grid-column: 3/4;
@@ -102,6 +106,9 @@ const SocialMediaWrapper = styled.div`
 `
 
 const SocialMediaLinks = styled.ul`
+    list-style: none;
+    padding: 30px 25px 5px;
+    margin: 0;
     @media (min-width: 900px) {
         /* margin: 60px auto; */
         width: auto;
@@ -116,6 +123,13 @@ const SocialMediaLinks = styled.ul`
 `
 
 const SocialMediaLink = styled.li`
+    font-weight: 200;
+    color: ${colors.white};
+    /* border-bottom: 1px solid ${colors.footer.bars}; */
+    padding: 3px 0;
+    text-decoration: none;
+    width: 100%;
+    display: block;
     @media (min-width: 900px) {
         display: block;
     }
@@ -176,11 +190,7 @@ const Footer = () => {
                 <li><FooterLink to="/#projects">Realizacje</FooterLink></li>
                 <li><FooterLink to="/#contact">Kontakt</FooterLink></li>
             </FooterLinks>
-            <Langs>
-                <Lang selected>PL</Lang>
-                <Lang>EN</Lang>
-                <Lang>DE</Lang>
-            </Langs>
+            
             <SocialMediaWrapper>
                 <SocialMediaLinks>
                     <FooterLinksHeader>Social Media</FooterLinksHeader>
@@ -189,6 +199,12 @@ const Footer = () => {
                     <SocialMediaGoogle><ExternalLink href="https://g.page/banbud/review" target="__blank" >Oceń nas w Google</ExternalLink></SocialMediaGoogle>
                 </SocialMediaLinks>
             </SocialMediaWrapper>
+
+            <Langs>
+                <Lang selected>PL</Lang>
+                <Lang>EN</Lang>
+                <Lang>DE</Lang>
+            </Langs>
             <Copys>
                 &copy;Hillock Studio 2019 | All Rights Reserved
             </Copys>
