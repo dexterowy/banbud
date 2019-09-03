@@ -5,7 +5,7 @@ import { Link } from 'gatsby';
 import colors from '../../utils/colors'
 import fonts from '../../utils/fonts'
 
-import img from '../../images/logo.png';
+import img from '../../images/logo_biale.png';
 
 const FooterWrapper = styled.div`
     background: ${colors.footer.bg};

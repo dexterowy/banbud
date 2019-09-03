@@ -86,7 +86,7 @@ const Desktop = styled.div`
 `
 
 const MobileView = (
-    <Carousel interval={8000} showThumbs={false} autoPlay stopOnHover infiniteLoop showStatus={false} showArrows={false}>
+    <Carousel interval={8000} showThumbs={false} autoPlay infiniteLoop showStatus={false} showArrows={false}>
                 <Slide>
                     <ImageWrapper>
                         <img src={pedzel} alt="pędzel" style={{height: "70px"}} />
@@ -124,7 +124,7 @@ const MobileView = (
                         <img src={betoniarka} alt="betoniarka" style={{height: "70px"}} />
                         <SlideHeader>Budowa <br /> domu</SlideHeader>
                         <SlideText>
-                            Nasza szeroka oferta usług wykończeniowych świadczy najwyższy poziom jakości dla naszych klientów. Wszystko wykonujemy dokładnie i rzetelnie, aby w stu procentach zapewnić zadowolenie.
+                            Jesteśmy w stanie zbudować dom od zera. Zrealizujemy projekt twoich marzeń, specjalnie według upodobań. Nasze doświadczenie gwarantuje dobrze wykonaną pracę.
                         </SlideText>
                     </ImageWrapper>
                 </Slide>
@@ -159,7 +159,7 @@ const DesktopView = (
                 <img src={betoniarka} alt="betoniarka" style={{height: "70px"}} />
                 <SlideHeader>Budowa <br /> domu</SlideHeader>
                 <SlideText>
-                    Nasza szeroka oferta usług wykończeniowych świadczy najwyższy poziom jakości dla naszych klientów. Wszystko wykonujemy dokładnie i rzetelnie, aby w stu procentach zapewnić zadowolenie.
+                            Jesteśmy w stanie zbudować dom od zera. Zrealizujemy projekt twoich marzeń, specjalnie według upodobań. Nasze doświadczenie gwarantuje dobrze wykonaną pracę.
                 </SlideText>
             </ImageWrapper>
         </Slide>
