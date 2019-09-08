@@ -8,7 +8,7 @@ import colors from '../../utils/colors';
 import fonts from '../../utils/fonts';
 
 
-const NavWrapper = styled.div`
+const NavWrapper = styled.header`
     width: 100%;
     z-index: 999;
     position: fixed;
@@ -52,7 +52,7 @@ const Logo = styled.img `
     }
 `
 
-const Menu = styled.div `
+const Menu = styled.nav `
     width: 100%;
     height: ${props => props.menu ? "250px" : 0};
     position: relative;

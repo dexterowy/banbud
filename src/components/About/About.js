@@ -6,7 +6,7 @@ import fonts from '../../utils/fonts';
 
 import img from '../../images/worker.png';
 
-const AboutWrapper = styled.div`
+const AboutWrapper = styled.section`
     width: 100%;
     font-family: ${fonts.poppins};
     padding-top: 40px;

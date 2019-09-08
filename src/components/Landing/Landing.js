@@ -10,7 +10,7 @@ import fonts from '../../utils/fonts';
 // import Div100vh from 'react-div-100vh';
 import More from './More'
 
-const LandingWrapper = styled.div`
+const LandingWrapper = styled.section`
     /* height: ${window.innerHeight} */
     height: 100vh;
     width: 100%;

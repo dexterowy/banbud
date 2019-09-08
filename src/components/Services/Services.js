@@ -13,7 +13,7 @@ import walek from '../../images/svg/walek.svg'
 import waserwoga from '../../images/svg/waserwoga.svg'
 import pila from '../../images/svg/pila.svg'
 
-const ServicesWrapper = styled.div`
+const ServicesWrapper = styled.section`
     background: ${colors.white};
     font-family: ${fonts.poppins};
     @media (min-width: 900px) {

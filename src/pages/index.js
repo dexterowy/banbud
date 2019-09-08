@@ -20,7 +20,7 @@ if (typeof window !== "undefined") {
 }
 
 const PATH_URL = 'http://new.ban-bud.pl/api/contact.php';
-const PRODUCTION_MODE = false;
+const PRODUCTION_MODE = true;
 
 class IndexPage extends Component {
   constructor(props) {
@@ -213,11 +213,13 @@ class IndexPage extends Component {
         openMenuHandler={this.openMenuHandler} closeMenuHandler={this.closeMenuHandler}
         // navAnimation ={this.menuAnimationHandler}
         />
-        <Landing />
-        <About />
-        <Projects />
-        <Services />
-        <Contact error={this.state.error} closeInfo={this.closeContactInfo.bind(this)} sended={this.state.sended} formValues={this.state.form} loading={this.state.loadingContact} submitHandle={this.handleSubmit.bind(this)} handleInput={this.handleInput.bind(this)}/>
+        <main>
+          <Landing />
+          <About />
+          <Projects />
+          <Services />
+          <Contact error={this.state.error} closeInfo={this.closeContactInfo.bind(this)} sended={this.state.sended} formValues={this.state.form} loading={this.state.loadingContact} submitHandle={this.handleSubmit.bind(this)} handleInput={this.handleInput.bind(this)}/>
+        </main>
         <Footer />
       </PageWrapper>
     )

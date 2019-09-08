@@ -7,7 +7,7 @@ import fonts from '../../utils/fonts'
 
 import img from '../../images/logo_biale.png';
 
-const FooterWrapper = styled.div`
+const FooterWrapper = styled.footer`
     background: ${colors.footer.bg};
     font-family: ${fonts.poppins};
     @media (min-width: 900px) {

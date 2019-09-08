@@ -9,7 +9,7 @@ import fonts from '../../utils/fonts'
 import Spinner from '../Spinner/Spinner';
 
 
-const ContactWrapper = styled.div`
+const ContactWrapper = styled.section`
     margin: 10px 25px;
     @media (min-width: 900px) {
         display: grid;

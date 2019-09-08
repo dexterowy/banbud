@@ -6,7 +6,7 @@ import fonts from '../../utils/fonts';
 
 
 
-const ProjectsWrapper = styled.div`
+const ProjectsWrapper = styled.section`
     width: 100%;
     background: ${colors.red};
     color: ${colors.white};
